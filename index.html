@@ -35,10 +35,10 @@
                                     <div tabindex="0"
                                           class="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
                                           <div class="card-body">
-                                                <span class="text-lg font-bold" id="totalProducts"></span>
-                                                <span class="text-info" id="totalPrice"></span>
+                                                <p class="text-lg font-bold"><span id="totalProducts">0</span> Items</p>
+                                                <p class="text-info"> Total Price $<span id="totalPrice">0</span></p>
                                                 <div class="card-actions">
-                                                      <button class="btn btn-primary btn-block" id="cart">View
+                                                      <button class="btn btn-primary btn-block" id="vewCart">View
                                                             cart</button>
                                                 </div>
                                           </div>
@@ -68,9 +68,15 @@
             </nav>
       </head>
       <main class=" mb-44">
+
             <span class="loading loading-spinner loading-xs fixed left-1/2 top-1/2 w-14 " id="speen"></span>
+            <!-- main section  -->
             <section id="cardContainer"
-                  class=" grid grid-cols-1 w-11/12  sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4  container mx-auto">
+                  class=" grid grid-cols-1 w-11/12  sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4  container mx-auto ">
+            </section>
+            <!-- cart section  -->
+            <section id="carts hidden">
+
             </section>
       </main>
 
