@@ -12,7 +12,7 @@ const displayData = (data) => {
 
             const cardDiv = document.createElement('div')
             cardDiv.innerHTML = ` 
-            <div class="card-body border-purple-700 border-2 rounded-md shadow-lg  shadow-[#00000033]">
+            <div class="card-body border-purple-700 border-2 rounded-md shadow-lg h-full  shadow-[#00000033]">
                               <h2 class="card-title">Id : ${album.id}</h2>
                               <p>${album.title}</p>
                               <div class="card-actions justify-end">
