@@ -40,36 +40,19 @@ const totalItems = document.getElementById('totalProducts')
 const vewCart = document.getElementById('carts')
 const addCart = (id) => {
       const datanew = allAlbums.find(album => album.id === id)
+      console.log(datanew);
 
-      const cartFind = cart.find(fcart => fcart.id === datanew.id)
+      const cartFind = cart.find(fcart => fcart.id === id)
 
       if (!cartFind) {
             cart.push(datanew)
-            console.log(cart);
+            // console.log(cart);
             prductCounter.innerText = cart.length
             totalCartPrice += datanew.price
             totalPrice.innerText = totalCartPrice.toFixed(2)
             totalItems.innerText = cart.length
-            const cartCard = document.createElement('div')
-            cartCard.innerHTML = `
-            <div class="card card-side bg-base-100 shadow-xl">
-               <figure>
-                        <img
-             src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-                    alt="Movie" />
-                </figure>
-                      <div class="card-body">
-              <h2 class="card-title">New movie is released!</h2>
-                    <p>Click the button to watch on Jetflix app.</p>
-                 <div class="card-actions justify-end">
-                      <button class="btn btn-primary">Watch</button>
-                </div>
-            </div>
-          </div>
-            `
+            addToCartVew()
 
-
-            vewCart.appendChild(cartCard)
 
 
 
@@ -82,14 +65,44 @@ const addCart = (id) => {
 
 
 
-
-
 }
+
+const addToCartVew = () => {
+      for (const product of cart) {
+            const cartCard = document.createElement('div')
+            cartCard.innerHTML = `
+        <div class="card card-side bg-base-100 shadow-xl">
+         <figure class="w-5/12">
+                  <img
+             src="${product.image}"
+              alt="Movie" class=" w-32" />
+          </figure>
+                <div class="card-body">
+        <h2 class="card-title">${product.title}</h2>
+              <p>${product.description}</p>
+              <p class=" font-bold text-xl">$${product.price}</p>
+           <div class="card-actions justify-end">
+                <button class="btn btn-primary">Buy Now</button>
+          </div>
+        </div>
+        </div>
+        `
+            vewCart.appendChild(cartCard)
+      }
+}
+
 document.getElementById('vewCart').addEventListener('click', () => {
       console.log('clicked');
       document.getElementById('cardContainer').classList.add('hidden')
 
       vewCart.classList.remove('hidden')
+})
+
+document.getElementById('homeBtn').addEventListener('click', () => {
+      console.log('clicked');
+      document.getElementById('cardContainer').classList.remove('hidden')
+
+      vewCart.classList.add('hidden')
 })
 
 loadData()
