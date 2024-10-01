@@ -21,6 +21,7 @@ const displayData = (data) => {
                         </div>
             `
             cardContainer.appendChild(cardDiv)
+            document.getElementById('speen').classList.add('hidden')
       }
 
 }
