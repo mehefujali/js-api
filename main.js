@@ -40,7 +40,6 @@ const totalItems = document.getElementById('totalProducts')
 const vewCart = document.getElementById('carts')
 const addCart = (id) => {
       const datanew = allAlbums.find(album => album.id === id)
-      console.log(datanew);
 
       const cartFind = cart.find(fcart => fcart.id === id)
 
@@ -68,10 +67,11 @@ const addCart = (id) => {
 }
 
 const addToCartVew = () => {
+      vewCart.innerHTML = ``
       for (const product of cart) {
             const cartCard = document.createElement('div')
             cartCard.innerHTML = `
-        <div class="card card-side bg-base-100 shadow-xl">
+        <div class="card card-side bg-base-100 shadow-xl mb-4">
          <figure class="w-5/12">
                   <img
              src="${product.image}"
@@ -90,7 +90,7 @@ const addToCartVew = () => {
             vewCart.appendChild(cartCard)
       }
 }
-
+addToCartVew()
 document.getElementById('vewCart').addEventListener('click', () => {
       console.log('clicked');
       document.getElementById('cardContainer').classList.add('hidden')
