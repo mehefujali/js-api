@@ -38,6 +38,7 @@ const prductCounter = document.getElementById('prductCounter')
 const totalPrice = document.getElementById('totalPrice')
 const totalItems = document.getElementById('totalProducts')
 const vewCart = document.getElementById('carts')
+
 const addCart = (id) => {
       const datanew = allAlbums.find(album => album.id === id)
 
@@ -51,19 +52,31 @@ const addCart = (id) => {
             totalPrice.innerText = totalCartPrice.toFixed(2)
             totalItems.innerText = cart.length
             addToCartVew()
-
+            sowTost(true)
 
 
 
       }
       else {
-            alert('cart already added')
+            sowTost(false)
 
       }
 
 
 
 
+}
+const sowTost = (alert) => {
+      const alertSuccess = document.getElementById('alert-success')
+      const alertError = document.getElementById('alert-error')
+      if (alert) {
+            alertSuccess.classList.remove('hidden')
+            setTimeout(() => alertSuccess.classList.add('hidden'), 1500)
+      }
+      else {
+            alertError.classList.remove('hidden')
+            setTimeout(() => alertError.classList.add('hidden'), 1500)
+      }
 }
 
 const addToCartVew = () => {
@@ -88,6 +101,7 @@ const addToCartVew = () => {
         </div>
         `
             vewCart.appendChild(cartCard)
+
       }
 }
 addToCartVew()
